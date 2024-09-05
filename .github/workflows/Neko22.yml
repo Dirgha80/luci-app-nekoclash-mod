@@ -40,9 +40,9 @@ jobs:
       - name: Preparing Neko
         run: |
               echo ""
-              git clone https://github.com/Dirgha80/luci-app-nekoclash
+              git clone https://github.com/Dirgha80/luci-app-nekoclash-mod
               mkdir feeds artifacts
-              cp -rf ./luci-app-nekoclash ./feeds
+              cp -rf ./luci-app-nekoclash-mod ./feeds
         
       - name: Building luci-app-nekoclash
         uses: nosignals/gh-action-sdk@main
@@ -50,7 +50,7 @@ jobs:
           ARCH: ${{ matrix.arch }}-${{ matrix.release }}
           ARTIFACTS_DIR: ${{ github.workspace }}/artifacts
           FEED_DIR: ${{ github.workspace }}/feeds
-          PACKAGES: luci-app-nekoclash
+          PACKAGES: luci-app-nekoclash-mod
           NO_SHFMT_CHECK: 1
         
       - name: Delivering Package
